@@ -6,7 +6,7 @@ class ArgParser(object):
 
     def __init__(self):
         self._parser = ArgumentParser(
-            prog='what', description='Python Package Hello World', add_help=False
+            prog='what', description='Python Package to look up errors', add_help=False
         )
         self._add_arguments()
 

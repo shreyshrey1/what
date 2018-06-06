@@ -1,9 +1,8 @@
 import logging
 import sys
-
 from what import __version__
 from what.argparser import ArgParser
-
+from .utils import getLastOutput
 
 def set_log_level(parsed_args):
     logger = logging.getLogger()
@@ -11,11 +10,6 @@ def set_log_level(parsed_args):
         logger.setLevel(logging.INFO)
     else:
         logger.setLevel(logging.WARNING)
-
-
-def run_action(action):
-    print(f'Hello Python World! Action is: `{action}`!')
-
 
 def main():
     parser = ArgParser()
@@ -27,4 +21,4 @@ def main():
         parser.print_version(__version__)
     # elif parsed_args.action:
     else:
-        print("hello world")
+        print(getLastOutput())
