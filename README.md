@@ -25,3 +25,4 @@ $python
 $what
 ```
 This will pull up a google search with the error.
+Running ```what stack``` will pull up a StackOverflow search
