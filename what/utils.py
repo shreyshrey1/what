@@ -1,5 +1,5 @@
-from os import path, environ
-import subprocess
+from os import path, environ, popen
+from subprocess import Popen, PIPE, STDOUT
 
 def getShell():
     path = environ['SHELL']
@@ -31,10 +31,15 @@ def getLast(commands):
     return line[1]
 
 def checkOutput(command):
+    print(command.split(' '))
     return subprocess.check_output(command.split(' '))
 
 def getLastOutput():
     shell = getShell()
     history = readHistory(shell)
     last = getLast(history)
-    return checkOutput(last)
+    # env = dict(os.environ)
+    # env.update(settings.env)
+    output = Popen(last, shell=True, stdin=PIPE,
+                        stdout=PIPE, stderr=STDOUT)
+    return output.stdout.read().decode('utf-8')
