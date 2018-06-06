@@ -30,16 +30,10 @@ def getLast(commands):
     line = line.split(";")
     return line[1]
 
-def checkOutput(command):
-    print(command.split(' '))
-    return subprocess.check_output(command.split(' '))
-
 def getLastOutput():
     shell = getShell()
     history = readHistory(shell)
     last = getLast(history)
-    # env = dict(os.environ)
-    # env.update(settings.env)
     output = Popen(last, shell=True, stdin=PIPE,
                         stdout=PIPE, stderr=STDOUT)
     return output.stdout.read().decode('utf-8')
