@@ -15,12 +15,6 @@ def readHistory(shell):
         except:
             line = line.decode('utf8', 'ignore')
         line = line.strip()
-        # if len(line)>0 and line[0]=='#':
-        #     try:
-        #         dt = datetime.fromtimestamp(int(line.replace("#","")))
-        #         continue
-        #     except:
-        #         dt = None
         if line == '': continue
         commands.append(line)
     return commands

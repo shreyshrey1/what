@@ -2,7 +2,8 @@ import logging
 import sys
 from what import __version__
 from what.argparser import ArgParser
-from .utils import getLastOutput
+from .rerun import getLastOutput
+import webbrowser
 
 def set_log_level(parsed_args):
     logger = logging.getLogger()
@@ -19,6 +20,15 @@ def main():
         parser.print_help()
     elif parsed_args.version:
         parser.print_version(__version__)
-    # elif parsed_args.action:
+    elif parsed_args.action:
+        if parsed_args.action == "google":
+            x = getLastOutput().strip()
+            webbrowser.open("https://www.google.com/search?q=" + x)
+        elif parsed_args.action == "stack":
+            x = getLastOutput().strip()
+            webbrowser.open("https://stackoverflow.com/search?q=" + x)
+        else:
+            print("Invalid Argument, please try again")     
     else:
-        print(getLastOutput())
+        x = getLastOutput().strip()
+        webbrowser.open("https://www.google.com/search?q=" + x)
