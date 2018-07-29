@@ -29,5 +29,23 @@ def getLastOutput():
     history = readHistory(shell)
     last = getLast(history)
     output = Popen(last, shell=True, stdin=PIPE,
-                        stdout=PIPE, stderr=STDOUT)
+                        stdout=PIPE, stderr=STDOUT, close_fds=True)
     return output.stdout.read().decode('utf-8')
+
+def getLanguage(text):
+    javascriptKeywords = ["node", "npm", "yarn", ".js"]
+    for keyword in javascriptKeywords:
+        if keyword in text:
+            return "javascript"
+    if "python" in text:
+        return "python"
+
+def getError():
+    shell = getShell()
+    history = readHistory(shell)
+    last = getLast(history)
+    temp = getLastOutput().split("\n")
+    for i in temp:
+        if "error" in i.lower():
+            return i
+    return getLastOutput()

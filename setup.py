@@ -37,6 +37,14 @@ setup(
     packages=find_packages(),
     include_package_data=False,
     install_requires=[
+        'certifi==2018.4.16',
+        'chardet==3.0.4',
+        'idna==2.6',
+        'preggy==1.4.2',
+        'requests==2.18.4',
+        'six==1.11.0',
+        'Unidecode==1.0.22',
+        'urllib3==1.22'
         # add your dependencies here
         # remember to use 'package-name>=x.y.z,<x.y+1.0' notation (this way you get bugfixes)
     ],
