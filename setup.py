@@ -44,7 +44,7 @@ setup(
         'requests==2.18.4',
         'six==1.11.0',
         'Unidecode==1.0.22',
-        'urllib3==1.22'
+        'urllib3==1.24.2'
         # add your dependencies here
         # remember to use 'package-name>=x.y.z,<x.y+1.0' notation (this way you get bugfixes)
     ],
