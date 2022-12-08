@@ -37,7 +37,7 @@ setup(
     packages=find_packages(),
     include_package_data=False,
     install_requires=[
-        'certifi==2018.4.16',
+        'certifi==2022.12.7',
         'chardet==3.0.4',
         'idna==2.6',
         'preggy==1.4.2',
